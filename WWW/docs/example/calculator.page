@@ -1,0 +1,3 @@
+@[model='Docs' title="Example - Calculator"]
+<@body/>
+<h1 class="text-center">Simple Calculator</h1>

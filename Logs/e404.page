@@ -1,0 +1,3 @@
+@[model='Site']
+<@body/>
+<h1>Page not found...</h1>

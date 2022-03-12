@@ -1,0 +1,5 @@
+<li>
+    <a href="/docs/~link" class="nav-link text-white@(Request.path.endsWith('/~link') ? ' active': '')">
+        <:reader/>
+    </a>
+</li>

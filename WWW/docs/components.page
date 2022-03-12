@@ -1,0 +1,4 @@
+@[model='Docs' title="Basic Components"]
+<@body/>
+<h1 class="text-center">Basic Components</h1>
+<markdown file="./components"/>

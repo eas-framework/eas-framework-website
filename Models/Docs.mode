@@ -1,0 +1,94 @@
+@[model='Site']
+<@title>Docs | <:title /></@title>
+<@body/>
+<style>
+    .side-bar-docs {
+        width: 250px;
+        min-height: 100vh;
+        transition: all .3s ease;
+    }
+
+    .sidebar-docs-button {
+        display: none;
+    }
+
+    @@media only screen and (max-width:900px) {
+        .side-bar-docs-close {
+            width: 0;
+            overflow: hidden;
+            padding: 0!important;
+        }
+
+        .sidebar-docs-button {
+            display: block;
+        }
+    }
+</style>
+<script>
+    function toggleSideBar(){
+        document.querySelector('#sidebarSupportedContent').classList.toggle('side-bar-docs-close')
+    }
+</script>
+<button class="btn btn-primary sidebar-docs-button m-2" type="button" onclick="toggleSideBar()">
+    Titles
+</button>
+<div class="d-flex">
+
+    <div id="sidebarSupportedContent" class="side-bar-docs-close side-bar-docs flex-column flex-shrink-0 p-3 text-white bg-dark">
+        <div class="text-center fs-4 text-primary">
+            Docs Titles
+        </div>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <DocLink link="getting-started">
+                Getting Started
+            </DocLink>
+            <DocLink link="settings-file">
+                Settings File
+            </DocLink>
+            <DocLink link="mpc">
+                Model, Page, Component
+            </DocLink>
+            <DocLink link="ssr">
+                SSR
+            </DocLink>
+            <DocLink link="data-binding">
+                Data Binding
+            </DocLink>
+            <DocLink link="server-files">
+                JS, TS - Server files
+            </DocLink>
+            <DocLink link="client-script">
+                TS, JSX, TSX, Sass, Svelte
+            </DocLink>
+            <DocLink link="components">
+                Basic Components
+            </DocLink>
+            <DocLink link="global">
+                Global Packages / Classes
+            </DocLink>
+        </ul>
+        <div class="text-center fs-4 text-info mt-3">
+            Example
+        </div>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <DocLink link="example/calculator">
+                Calculator
+            </DocLink>
+            <DocLink link="example/gallery">
+                Gallery
+            </DocLink>
+            <DocLink link="example/chat">
+                Chat
+            </DocLink>
+            <DocLink link="example/gitlab">
+                GitLab Examples
+            </DocLink>
+        </ul>
+    </div>
+    
+    <div class="mt-4 w-100">
+        <:body/>
+    </div>
+</div>

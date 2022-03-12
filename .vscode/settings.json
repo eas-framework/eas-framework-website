@@ -1,0 +1,16 @@
+{
+    "grammarly.overrides": [
+        {
+            "files": [
+                "**/WWW/docs/ssr.serv.md"
+            ],
+            "config": {
+                "audience": "knowledgeable",
+                "dialect": "american",
+                "domain": "general",
+                "emotions": [],
+                "goals": []
+            }
+        }
+    ]
+}

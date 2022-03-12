@@ -1,0 +1,4 @@
+@[model='Docs' title="MPC"]
+<@body/>
+<h1 class="text-center">Model, Page, Component</h1>
+<markdown file="./mpc" />

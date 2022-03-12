@@ -1,0 +1,5 @@
+@[model='Docs' title="Client Files"]
+<@body/>
+<h1 class="text-center">Client Files</h1>
+
+<markdown file="./client-script"/>

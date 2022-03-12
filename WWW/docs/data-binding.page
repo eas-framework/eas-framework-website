@@ -1,0 +1,4 @@
+@[model='Docs' title="Data Binding"]
+<@body/>
+<h1 class="text-center">Form, Validation, Data Binding</h1>
+<markdown file="./data-binding" />

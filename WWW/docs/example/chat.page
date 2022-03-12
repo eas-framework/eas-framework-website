@@ -1,0 +1,3 @@
+@[model='Docs' title="Example - WS Chat"]
+<@body/>
+<h1 class="text-center">WS Chat</h1>
