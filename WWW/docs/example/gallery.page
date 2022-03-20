@@ -1,3 +1,4 @@
 @[model='Docs' title="Example - Gallery"]
 <@body/>
 <h1 class="text-center">Gallery</h1>
+<markdown file="./gallery"/>

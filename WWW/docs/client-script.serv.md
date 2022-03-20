@@ -5,7 +5,7 @@
 You can enable TypeScipt globaly from the Settings.ts/Settings.js file,
 ```js
 compile: {
-    compileSyntax: ["Razor", "TypeScript"]
+    compileSyntax: ["TypeScript"]
 }
 ```
 
@@ -57,6 +57,18 @@ If you want to prevent that, for example, you need SSR inside the script tag the
 ```html
 <script server>
     const preventFetch = @isFetch
+</script>
+```
+
+# Only in page script/style
+If you have script/style with a changing depends on the file you need to and the 'page' attribute
+
+This will make sure that script and style will render to a specific files that separate for the page and not to something that is for the model/component
+
+*[:name:]: A 'define' value
+```html
+<script page>
+    const name = ":name:";
 </script>
 ```
 

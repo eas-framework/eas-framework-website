@@ -5,7 +5,7 @@
 Basically, every SSR block (page, model, component)
 can use EJS and Razor-like rendering
 
-```html
+```js
 @*Simple Comment - this is who to write SSR block *@
 <% let i = 0 // script block %>
 @{
@@ -16,7 +16,7 @@ can use EJS and Razor-like rendering
 Count EJS: <%:i%>
 Count Razor: @:i
 
-@*This is Who to write literal HTML*@
+@*This is how to write literal HTML*@
 <%= "<p>Text ejs</p>" %>
 @("<p>Text Razor</p>")
 ```

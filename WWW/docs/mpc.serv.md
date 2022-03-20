@@ -7,7 +7,7 @@ Its basic concept is page-model-component, a bit similar to asp.
 
 ## Examples
 
-model example: www/Site.mode
+model example: `www/Site.mode`
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -20,8 +20,9 @@ model example: www/Site.mode
 </html>
 ```
 
-component example: www/ColorButton.inte
+component example: `www/ColorButton.inte`
 
+(component name must be capitalize)
 ```html
 @default(blue)[color]
 
@@ -30,7 +31,7 @@ component example: www/ColorButton.inte
 </button>
 ```
 
-page example: www/index.page
+page example: `www/index.page`
 
 ```html
 @[model='./Site' title='This is Home Page']
@@ -41,9 +42,35 @@ page example: www/index.page
 
 @{
     if(!Cookies.counter)
-    Cookies.counter = 0
+        Cookies.counter = 0
     Cookies.counter++
 }
 
 <p>Counter: @Cookies.counter</p>
+```
+
+# Folders
+All those folders must be on the root folder
+
+## Components
+If exists contains components that doesn't need a 'folder' attribute
+
+```html
+<ColorButton>Blue Button</ColorButton>
+
+```
+
+### Nested
+You can do nested components like that:
+
+```html
+<Colors:Button>Blue Button</Colors:Button>
+```
+Colors is the folder and Button is the component file
+
+## Models
+If exists contains models that doesn't need a relative or absolute path
+
+```python
+@[model=Site]
 ```

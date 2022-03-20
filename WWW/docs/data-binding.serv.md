@@ -95,7 +95,7 @@ A simple way to validate and **parse** a form data
 
 |         | String Length Range           | Number Range                  | String Enum                | Number Enum                | Regex                     | Function                                                                                                     |
 |---------|-------------------------------|-------------------------------|----------------------------|----------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------|
-| Example | 6:10                          | -5..15                        | string => cat \| dog       | number => 1 \| 8           | /^[a-z]+[0-9]$/           | myFunction                                                                                                   |
+| Example | 6-10                          | -5..15                        | string => cat \| dog       | number => 1 \| 8           | /^[a-z]+[0-9]$/           | myFunction                                                                                                   |
 | Comment | Between 6 to 10 string length | Between -5 to 15 number range | Multiple choice for string | Multiple choice for number | Can be any Regex instance | If none of the previous methods is possible, it will call the function.   **The function can be asynchrony** |
 
 * You can use any shorthand in enum

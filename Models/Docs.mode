@@ -4,7 +4,7 @@
 <style>
     .side-bar-docs {
         width: 250px;
-        min-height: 100vh;
+        min-height: calc(100vh - 56px);
         transition: all .3s ease;
     }
 
@@ -32,10 +32,9 @@
 <button class="btn btn-primary sidebar-docs-button m-2" type="button" onclick="toggleSideBar()">
     Titles
 </button>
-<div class="d-flex">
-
+<div class="d-flex h-100">
     <div id="sidebarSupportedContent" class="side-bar-docs-close side-bar-docs flex-column flex-shrink-0 p-3 text-white bg-dark">
-        <div class="text-center fs-4 text-primary">
+        <div class="text-center fs-4 text-success">
             Docs Titles
         </div>
         <hr>
@@ -55,6 +54,9 @@
             <DocLink link="data-binding">
                 Data Binding
             </DocLink>
+            <DocLink link="easy-api">
+                Easy API
+            </DocLink>
             <DocLink link="server-files">
                 JS, TS - Server files
             </DocLink>
@@ -66,6 +68,15 @@
             </DocLink>
             <DocLink link="global">
                 Global Packages / Classes
+            </DocLink>
+            <DocLink link="external-packages">
+                External Packages
+            </DocLink>
+            <DocLink link="ssr-compile">
+                SSR Compile RunTime
+            </DocLink>
+            <DocLink link="troubleshooting">
+                Troubleshooting
             </DocLink>
         </ul>
         <div class="text-center fs-4 text-info mt-3">
