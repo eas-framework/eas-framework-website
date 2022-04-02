@@ -3,6 +3,7 @@
 <style>
     .index img {
         width: 600px;
+        max-width: calc(100% - 10px);
         max-height: 900px;
         border-radius: 10px;
         margin: 5px;

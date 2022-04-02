@@ -59,6 +59,8 @@ async function ReadPath(dir){
         }
 
         const normalize = path.normalize(filePath).slice(0,-8);
+
+        
     
         writeTitle += `
             if(pagePath == "${normalize}"){
@@ -67,7 +69,7 @@ async function ReadPath(dir){
         `;
 
         buildText +=`@if(pagePath == "${normalize}"){
-            <MSearch file="${filePath}"/>
+            <MSearch file="${filePath}" link="${path.join(__localpath.substring(1), '..', normalize)}"/>
         }`;
 
     }

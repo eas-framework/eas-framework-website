@@ -1,3 +1,3 @@
+/docs/v1/index
 /docs
 /index
-/docs/v1/index

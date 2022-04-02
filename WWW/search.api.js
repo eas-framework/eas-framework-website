@@ -14,7 +14,7 @@ export default {
                length: 50,
                addAfterMaxLength: '...',
                fuzzy: 0.9,
-               filter: ({url}) =>url.startsWith('/docs/' + version)
+               filter: ({url}) =>url.startsWith('/docs/' + version + '/')
             })
            .splice(0, 10).map(x => ({text: x.text, url: x.url}))
         }

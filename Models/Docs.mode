@@ -38,11 +38,11 @@
         </DocLink>
 
         <DocTitle>Data Binding</DocTitle>
-        <DocLink link="binding-connect" icon="fa-solid fa-link">
-            Connect
-        </DocLink>
         <DocLink link="binding-form" icon="fa-solid fa-cloud-arrow-up">
             Form
+        </DocLink>
+        <DocLink link="binding-connect" icon="fa-solid fa-link">
+            Connect
         </DocLink>
         <DocLink link="binding-api" icon="fa-brands fa-node-js">
             API

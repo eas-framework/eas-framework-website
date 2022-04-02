@@ -1,5 +1,5 @@
 export default {
-    development: true && !process.argv.includes('production'),
+    development: !process.argv.includes('production'),
 
     general: {
         pageInRam: true,

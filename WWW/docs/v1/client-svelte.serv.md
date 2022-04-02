@@ -42,7 +42,7 @@ This is necessary only on svelte because how svelte works
 
 ```html
 <script lang=ts>
-    @@import type {coolType} from './location.ts'
+    @import type {coolType} from './location.ts'
 
     const beType: coolType = {attr1: 1, attr2: 2};
 </script>

@@ -5,10 +5,11 @@ When you import TypeScript it automatically transpile into regular JavaScript
 
 ## SSR Block
 ```html
-<script lang=ts>
+<script lang=ts type=module>
+    import {capitalize} from '/scripts/capitalize.ts'
     let name: string;
     while(!name){
-        name = prompt('Enter Name');
+        name = capitalize(prompt('Enter Name'));
     }
 </script>
 ```

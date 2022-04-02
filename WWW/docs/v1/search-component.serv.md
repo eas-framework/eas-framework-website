@@ -1,5 +1,5 @@
 # Search
-Similar to record but for search purposes
+Similar to [record](./record-component) but for search purposes
 
 This will extract titles from the texts
 
