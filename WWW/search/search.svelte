@@ -27,7 +27,7 @@
     .results {
         position: absolute;
         right: 6px;
-        top: 70px;
+        top: 80px;
         width: calc(100% - 10px);
 
         div a {
