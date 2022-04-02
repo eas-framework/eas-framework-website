@@ -1,0 +1,12 @@
+@compile {
+    if(attributes.file){
+        define('file', `file="..${attributes.importSourceDirectory + '/' + attributes.file}"`);
+    } else {
+        define('file', '')
+    }
+}
+<search>
+<markdown :file: theme="@(darkMode ? 'dark' : 'light')" code-theme="@(darkMode ? 'atom-one-dark' : 'atom-one-light')">
+    <:reader/>
+</markdown>
+</search>

@@ -1,3 +1,19 @@
 @[model='Site' title="Home Page"]
 <@body/>
-<h1>Welcome</h1>
+<style>
+    img {
+        max-width: 100%;
+        max-height: 900px;
+        border-radius: 10px;
+    }
+</style>
+<div class="text-center">
+    <h1>EAS Framework</h1>
+    <h5>Why to work hard when you can work eas</h5>    
+    
+    <h2>Binding Data as EAS</h2>
+    <img src="./images/form.png"/>
+
+    <h3>Templatetag ut of the box</h3>
+    <img src="./images/template.png"/>
+</div>

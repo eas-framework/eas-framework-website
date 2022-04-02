@@ -20,6 +20,6 @@
   },
   "homepage": "https://gitlab.com/eas-framework/eas-framework-website#readme",
   "dependencies": {
-    "eas-framework": "gitlab:eas-framework/eas-framework"
+    "@eas-framework/server": "gitlab:eas-framework/eas-framework"
   }
 }

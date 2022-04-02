@@ -1,3 +1,3 @@
-import {Server} from 'eas-framework';
+import server from '@eas-framework/server';
 
-Server({SitePath: './'});
+server();

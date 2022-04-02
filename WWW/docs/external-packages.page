@@ -1,4 +1,0 @@
-@[model='Docs' title="External Packages"]
-<@body/>
-<h1 class="text-center">External Packages</h1>
-<markdown file="./external-packages" />

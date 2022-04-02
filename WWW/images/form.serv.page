@@ -1,0 +1,17 @@
+@{
+    import db from './db';
+    function addComment(name, email, message) {
+        try {
+            db.insert('feedbacks', {name, email, message});
+            return Response.redirect('/thank-for-your-feedback');
+        } catch (e) {
+            return "Sorry, something went wrong";
+        }
+    }
+}
+<form sendTo="addFeedback" validator="name:5-30,email:email,message:1-100">
+    <input type="text" name="name" placeholder="Enter nickname" minlength="5" maxlength="100"/>
+    <input type="email" name="email" placeholder="Your email address"/>
+    <textarea name="message" placeholder="Enter message" minlength="1" maxlength="100"></textarea>
+    <button type="submit">Submit</button>
+</form>

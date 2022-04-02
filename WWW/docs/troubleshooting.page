@@ -1,4 +1,0 @@
-@[model='Docs' title="Troubleshooting"]
-<@body/>
-<h1 class="text-center">Troubleshooting</h1>
-<markdown file="./troubleshooting" />

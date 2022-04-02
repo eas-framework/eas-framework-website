@@ -1,4 +1,0 @@
-@[model='Docs' title="SSR Compile"]
-<@body/>
-<h1 class="text-center">SSR Compile</h1>
-<markdown file="./ssr-compile" />

@@ -1,105 +1,103 @@
 @[model='Site']
-<@title>Docs | <:title /></@title>
-<@body/>
-<style>
-    .side-bar-docs {
-        width: 250px;
-        min-height: calc(100vh - 56px);
-        transition: all .3s ease;
-    }
-
-    .sidebar-docs-button {
-        display: none;
-    }
-
-    @@media only screen and (max-width:900px) {
-        .side-bar-docs-close {
-            width: 0;
-            overflow: hidden;
-            padding: 0!important;
-        }
-
-        .sidebar-docs-button {
-            display: block;
-        }
-    }
-</style>
-<script>
-    function toggleSideBar(){
-        document.querySelector('#sidebarSupportedContent').classList.toggle('side-bar-docs-close')
-    }
-</script>
-<button class="btn btn-primary sidebar-docs-button m-2" type="button" onclick="toggleSideBar()">
-    Titles
-</button>
-<div class="d-flex h-100">
-    <div id="sidebarSupportedContent" class="side-bar-docs-close side-bar-docs flex-column flex-shrink-0 p-3 text-white bg-dark">
-        <div class="text-center fs-4 text-success">
-            Docs Titles
+@compile {
+    store.sidebar = true;
+}
+<@title>Docs |<:title /></@title>
+<@sidebar />
+<div class="sidebar">
+    <div class="sidebar-menu">
+        <!-- Sidebar content with the search box -->
+        <div class="navbar-content p-10">
+            <input type="text" class="form-control" id="search" placeholder="Search">
+            <svelte from="/search/search.svelte"/>
         </div>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
-            <DocLink link="getting-started">
-                Getting Started
-            </DocLink>
-            <DocLink link="settings-file">
-                Settings File
-            </DocLink>
-            <DocLink link="mpc">
-                Model, Page, Component
-            </DocLink>
-            <DocLink link="ssr">
-                SSR
-            </DocLink>
-            <DocLink link="data-binding">
-                Data Binding
-            </DocLink>
-            <DocLink link="easy-api">
-                Easy API
-            </DocLink>
-            <DocLink link="server-files">
-                JS, TS - Server files
-            </DocLink>
-            <DocLink link="client-script">
-                TS, JSX, TSX, Sass, Svelte
-            </DocLink>
-            <DocLink link="components">
-                Basic Components
-            </DocLink>
-            <DocLink link="global">
-                Global Packages / Classes
-            </DocLink>
-            <DocLink link="external-packages">
-                External Packages
-            </DocLink>
-            <DocLink link="ssr-compile">
-                SSR Compile RunTime
-            </DocLink>
-            <DocLink link="troubleshooting">
-                Troubleshooting
-            </DocLink>
-        </ul>
-        <div class="text-center fs-4 text-info mt-3">
-            Example
-        </div>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
-            <DocLink link="example/calculator">
-                Calculator
-            </DocLink>
-            <DocLink link="example/gallery">
-                Gallery
-            </DocLink>
-            <DocLink link="example/chat">
-                Chat
-            </DocLink>
-            <DocLink link="example/gitlab">
-                GitLab Examples
-            </DocLink>
-        </ul>
+        <!-- Sidebar links (with icons) and titles -->
+        <DocTitle>Getting started</DocTitle>
+        <DocLink link="getting-started" icon="fa fa-code">
+            Installation
+        </DocLink>
+        <DocLink link="cli-commands" icon="fa fa-terminal">
+            CLI commands
+        </DocLink>
+        <DocLink link="settings-file" icon="fa-solid fa-gears">
+            Settings File
+        </DocLink>
+        
+        <DocTitle>SSR & Server</DocTitle>
+        <DocLink link="mpc" icon="fa-solid fa-file-code">
+            Basic MPC
+        </DocLink>
+        <DocLink link="ssr" icon="fa-solid fa-file-code">
+            SSR
+        </DocLink>
+        <DocLink link="server-files" icon="fa-brands fa-node-js">
+            Server Files
+        </DocLink>
+        <DocLink link="ssr-compile" icon="fa-brands fa-node-js">
+            Compile RunTime
+        </DocLink>
+
+        <DocTitle>Data Binding</DocTitle>
+        <DocLink link="binding-connect" icon="fa-solid fa-link">
+            Connect
+        </DocLink>
+        <DocLink link="binding-form" icon="fa-solid fa-cloud-arrow-up">
+            Form
+        </DocLink>
+        <DocLink link="binding-api" icon="fa-brands fa-node-js">
+            API
+        </DocLink>
+
+        <DocTitle>Components</DocTitle>
+        <DocLink link="client-component" icon="fa-solid fa-users">
+            Client
+        </DocLink>
+        <DocLink link="markdown-component" icon="fa-brands fa-markdown">
+            Markdown
+        </DocLink>
+        <DocLink link="record-component" icon="fa-solid fa-record-vinyl">
+            Record
+        </DocLink>
+        <DocLink link="search-component" icon="fa-solid fa-magnifying-glass">
+            Search
+        </DocLink>
+        <DocLink link="isolate-component" icon="fa-solid fa-house-chimney-user">
+            Isolate
+        </DocLink>
+
+        <DocTitle>Client Files</DocTitle>
+        <DocLink link="client-ts" icon="fa-solid fa-scroll">
+            TypeScript
+        </DocLink>
+        <DocLink link="client-sass" icon="fa-brands fa-sass">
+            Sass
+        </DocLink>
+        <DocLink link="client-jsx" icon="fa-brands fa-react">
+            JSX & TSX
+        </DocLink>
+        <DocLink link="client-scope" icon="fa-solid fa-box">
+            Scope Script/Style
+        </DocLink>
+        <DocLink link="client-svelte" icon="fa-solid fa-scroll">
+            Svelte
+        </DocLink>
+
+        <DocTitle>More</DocTitle>
+        <DocLink link="external-packages" icon="fa-solid fa-box">
+            External Packages
+        </DocLink>
+        <DocLink link="global" icon="fa-solid fa-globe">
+            Global Objects
+        </DocLink>
+        <DocLink link="troubleshooting" icon="fa-solid fa-circle-question">
+            Troubleshooting
+        </DocLink>
+        <DocLink link="examples" icon="fa-solid fa-graduation-cap">
+            Guides and Examples
+        </DocLink>
     </div>
-    
-    <div class="mt-4 w-100">
-        <:body/>
-    </div>
+</div>
+<@body />
+<div class="container-fluid p-10">
+    <:body/>
 </div>

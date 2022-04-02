@@ -1,0 +1,8 @@
+@{
+    let name = 'getting-started';
+
+    if(Query.name && /^[A-Za-z_\- ,]{3,100}$/.test(Query.name)){
+        name = Query.name;
+    }
+    Response.redirect('./docs/v:version:/'+name)
+}

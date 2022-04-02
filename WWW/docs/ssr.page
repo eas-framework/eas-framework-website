@@ -1,4 +1,0 @@
-@[model='Docs' title="SSR"]
-<@body/>
-<h1 class="text-center">SSR: Razor + EJS</h1>
-<markdown file="./ssr" />
