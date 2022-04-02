@@ -1,19 +1,24 @@
 @[model='Site' title="Home Page"]
 <@body/>
 <style>
-    img {
-        max-width: 100%;
+    .index img {
+        width: 600px;
         max-height: 900px;
         border-radius: 10px;
+        margin: 5px;
     }
 </style>
-<div class="text-center">
+<div class="text-center index">
     <h1>EAS Framework</h1>
     <h5>Why to work hard when you can work eas</h5>    
     
     <h2>Binding Data as EAS</h2>
     <img src="./images/form.png"/>
 
-    <h3>Templatetag ut of the box</h3>
-    <img src="./images/template.png"/>
+    <h3>Templatetag out of the box</h3>
+    <div class="d-flex flex-wrap align-items-start justify-content-center">
+        <img src="./images/template1.png"/>
+        <img src="./images/template2.png"/>
+        <img src="./images/template3.png"/>
+    </div>
 </div>
