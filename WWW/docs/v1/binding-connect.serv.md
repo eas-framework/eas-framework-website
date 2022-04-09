@@ -14,7 +14,7 @@ Forms are very useful and convenient but do not fit good to events from the clie
         }
     }
 }
-<connect sendTo="userMessage" name="sendMessageServer" validator="1:200,integer"/>
+<connect sendTo="userMessage" name="sendMessageServer" validate="1-200,integer"/>
 
 <input type="number" id="userId" placeholder="User Id"/>
 <textarea id="message" name="message" placeholder="Enter your message"></textarea>
@@ -41,10 +41,10 @@ The response can be any type (JSON, Number, Boolean...)
   You can also use 'noValid' and 'message'
 
 ```html
-<connect sendTo="userMessage" name="sendMessageServer" validator="1:200,integer" noValid="() => ({error: 'fields not valid'})"/>
+<connect sendTo="userMessage" name="sendMessageServer" validate="1:200,integer" noValid="() => ({error: 'fields not valid'})"/>
 ```
 
 ```html
-<connect sendTo="userMessage" name="sendMessageServer" validator="1:200,integer" message="Enter a valid userId and make sure the message is between 1 to 200 characters"/>
+<connect sendTo="userMessage" name="sendMessageServer" validate="1:200,integer" message="Enter a valid userId and make sure the message is between 1 to 200 characters"/>
 ```
 </details>
