@@ -38,6 +38,10 @@ export default {
         define: { // global define - will bee explained later
             name: 'cool',
             version: 20
+        },
+        pathAliases: { // esm path aliases (not for dynamic imports)
+            "@imr": "/server/import/" // for example: import {func} from '@imp/data.serv.js' -> import {func} from '/server/import/data.serv.js'
+            //      ('/' is relative to the WWW folder)
         }
     },
 
@@ -92,7 +96,7 @@ export default {
     implDev: {
         //custom settings for development
     }, 
-    impProd: {
+    implProd: {
         //custom settings for production
     }
 }

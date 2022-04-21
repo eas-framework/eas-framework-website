@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/eas-framework/eas-framework-website.git"
+    "url": "git+ssh://git@github.com/eas-framework/eas-framework-website.git"
   },
   "keywords": [],
   "author": "ido.pluto",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/eas-framework/eas-framework-website/issues"
+    "url": "https://github.com/eas-framework/eas-framework-website/issues"
   },
-  "homepage": "https://gitlab.com/eas-framework/eas-framework-website#readme",
+  "homepage": "https://github.com/eas-framework/eas-framework-website#readme",
   "dependencies": {
     "@eas-framework/server": "gitlab:eas-framework/eas-framework"
   }
