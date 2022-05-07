@@ -1,25 +1,94 @@
 @[model='Site' title="Home Page"]
-<@body/>
+<@body />
 <style>
-    .index img {
-        width: 600px;
-        max-width: calc(100% - 10px);
-        max-height: 900px;
+    .card .content-title {
+        background: linear-gradient(to right, #e9f7ff, #fff0);
+        padding: 10px;
         border-radius: 10px;
-        margin: 5px;
+    }
+
+    .dark-mode .card .content-title {
+        background: linear-gradient(to right, #123d55, #fff0);
     }
 </style>
-<div class="text-center index">
-    <h1>EAS Framework</h1>
-    <h5>Why work hard when you can work EAS</h5>    
-    
-    <h2>Binding Data as EAS</h2>
-    <img src="./images/form.png"/>
+<div class="p-15">
+    <div class="text-center">
+        <h1>EAS Framework</h1>
+        <div class="description">
+            <p>Fast, SSR + CSR, Easy, Page-Component-Model</p>
+            <p style="font-size: 2vh;">
+                <u>Web framework</u> for <a href="https://nodejs.org/">Node.js</a>
+            </p>
+        </div>
+        <a href="/docs?name=getting-started">
+            <button class="btn btn-primary">Getting Started</button>
+        </a>
+        <a href="/docs?name=examples">
+            <button class="btn">Examples</button>
+        </a>
+    </div>
+    <div class="container">
+        <div class="d-flex justify-content-center flex-wrap">
+            <div class="card shadow w-400">
+                <h2 class="content-title">
+                    Builtin Template Engine
+                </h2>
+                <ul>
+                    <li>The template engin simple and similar to ASPX.NET. </li>
+                    <li>Working with page-component-model architecture.</li>
+                    <li>Dictionary based, to simply build your website tree and support for sitemap</li>
+                </ul>
+                <div class="text-right">
+                    <a href="/docs?name=mpc" class="btn">Read more</a>
+                </div>
+            </div>
+            <div class="card shadow w-400">
+                <h2 class="content-title">
+                    Data Binding + Web API support
+                </h2>
+                <ul>
+                    <li>
+                        Simply bind function from the server with <code>form</code> and <code>connect</code> tags<br />
+                    </li>
+                    <li>Custom pages for API similar to Express.js</li>
+                </ul>
+                <div class="text-right">
+                    <a href="/docs?name=binding-form" class="btn">Read more</a>
+                </div>
+            </div>
+            <div class="card shadow w-400">
+                <h2 class="content-title">
+                    All you need Out of the Box
+                </h2>
+                <ul>
+                    <li>Support for TypeScript, SASS, JSX, Svelte, Server Side Rendering and Client Side Rendering</li>
+                    <li>Optimization for any JavaScript, TypeScript, CSS, Sass, HTML with production speed</li>
+                </ul>
+                <div class="text-right">
+                    <a href="/docs?name=client-ts" class="btn">Read more</a>
+                </div>
+            </div>
+        </div>
+        <h3 class="border-bottom" id="samples">Samples:</h3>
+        <svelte from="/homepage-static/show.svelte" ssr props={
+            title: 'Model-Page-Component',
+            viewHTML: '/homepage-static/pages/mpc/about',
+            folder: 'mpc',
+            files: ['about.page', 'BLink.inte', 'site.mode']
+        }/>
 
-    <h3>Templatetag out of the box</h3>
-    <div class="d-flex flex-wrap align-items-start justify-content-center">
-        <img src="./images/template1.png"/>
-        <img src="./images/template2.png"/>
-        <img src="./images/template3.png"/>
+        <svelte from="/homepage-static/show.svelte" ssr props={
+            title: 'Data Binding',
+            viewHTML: '/homepage-static/pages/binding/submit',
+            folder: 'binding',
+            files: ['submit.page', 'submit.page.js', 'site.mode']
+        }/>
+
+        <svelte from="/homepage-static/show.svelte" ssr props={
+            title: 'Web API',
+            viewHTML: '/homepage-static/pages/api/use',
+            folder: 'api',
+            files: ['name.api.js', 'use.page', 'site.mode']
+        }/>
     </div>
 </div>

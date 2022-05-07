@@ -1,0 +1,22 @@
+@[model='./site' codeFile='inherit' title='Submit Data']
+<@body />
+<h1>Print Page</h1>
+<form sendTo="writeAge" class="form-inline" validate="age: 4..84, name: 2-10">
+    <input type="text" class="form-control" name="name" placeholder="Name" minlength="2" maxlength="10" />
+    <input type="number" class="form-control" name="age" placeholder="Age" min="4" max="84" />
+    <button class="btn">Submit</button>
+</form>
+
+<connect name="serverRandom" sendTo="chooseNumber" validate="10..15, 20..80" />
+
+<button onclick="showRandom()" class="btn btn-primary mt-15">Get Random from Server</button>
+
+<script>
+    async function showRandom() {
+        const min = prompt('Minimum number between 10-15', '10');
+        const max = prompt('Maximum number between 20-80', '30');
+        const response = await serverRandom(Number(min), Number(max));
+
+        alert(`Random number between ${min} and ${max} is ${response}`);
+    }
+</script>

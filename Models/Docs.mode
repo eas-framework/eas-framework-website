@@ -9,92 +9,10 @@
         <!-- Sidebar content with the search box -->
         <div class="navbar-content p-10">
             <input type="text" class="form-control" id="search" placeholder="Search">
-            <svelte from="/search/search.svelte"/>
+            <svelte from="/docs/search.svelte"/>
         </div>
         <!-- Sidebar links (with icons) and titles -->
-        <DocTitle>Getting started</DocTitle>
-        <DocLink link="getting-started" icon="fa fa-code">
-            Installation
-        </DocLink>
-        <DocLink link="cli-commands" icon="fa fa-terminal">
-            CLI commands
-        </DocLink>
-        <DocLink link="settings-file" icon="fa-solid fa-gears">
-            Settings File
-        </DocLink>
-        
-        <DocTitle>SSR & Server</DocTitle>
-        <DocLink link="mpc" icon="fa-solid fa-file-code">
-            Basic MPC
-        </DocLink>
-        <DocLink link="ssr" icon="fa-solid fa-file-code">
-            SSR
-        </DocLink>
-        <DocLink link="server-files" icon="fa-brands fa-node-js">
-            Server Files
-        </DocLink>
-        <DocLink link="ssr-compile" icon="fa-brands fa-node-js">
-            Compile RunTime
-        </DocLink>
-
-        <DocTitle>Data Binding</DocTitle>
-        <DocLink link="binding-form" icon="fa-solid fa-cloud-arrow-up">
-            Form
-        </DocLink>
-        <DocLink link="binding-connect" icon="fa-solid fa-link">
-            Connect
-        </DocLink>
-        <DocLink link="binding-api" icon="fa-brands fa-node-js">
-            API
-        </DocLink>
-
-        <DocTitle>Components</DocTitle>
-        <DocLink link="client-component" icon="fa-solid fa-users">
-            Client
-        </DocLink>
-        <DocLink link="markdown-component" icon="fa-brands fa-markdown">
-            Markdown
-        </DocLink>
-        <DocLink link="record-component" icon="fa-solid fa-record-vinyl">
-            Record
-        </DocLink>
-        <DocLink link="search-component" icon="fa-solid fa-magnifying-glass">
-            Search
-        </DocLink>
-        <DocLink link="isolate-component" icon="fa-solid fa-house-chimney-user">
-            Isolate
-        </DocLink>
-
-        <DocTitle>Client Files</DocTitle>
-        <DocLink link="client-ts" icon="fa-solid fa-scroll">
-            TypeScript
-        </DocLink>
-        <DocLink link="client-sass" icon="fa-brands fa-sass">
-            Sass
-        </DocLink>
-        <DocLink link="client-jsx" icon="fa-brands fa-react">
-            JSX & TSX
-        </DocLink>
-        <DocLink link="client-scope" icon="fa-solid fa-box">
-            Scope Script/Style
-        </DocLink>
-        <DocLink link="client-svelte" icon="fa-solid fa-scroll">
-            Svelte
-        </DocLink>
-
-        <DocTitle>More</DocTitle>
-        <DocLink link="external-packages" icon="fa-solid fa-box">
-            External Packages
-        </DocLink>
-        <DocLink link="global" icon="fa-solid fa-globe">
-            Global Objects
-        </DocLink>
-        <DocLink link="troubleshooting" icon="fa-solid fa-circle-question">
-            Troubleshooting
-        </DocLink>
-        <DocLink link="examples" icon="fa-solid fa-graduation-cap">
-            Guides and Examples
-        </DocLink>
+        <:pages/>
     </div>
 </div>
 <@body />

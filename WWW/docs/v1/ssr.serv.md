@@ -36,7 +36,7 @@ in each SSR block, these variables are global
 ## Global Methods
 in each SSR block, these methods are global
 * include(path, object: extends page object) - for include another SSR block - page or component
-* transfer(path, preserveForm: boolean - send the form to another page, object: extends page object) - for transfer to another page without redirect
+* transfer(path, preserveForm: boolean - send the form to another page, object: extends page object) -  transfer to another page without redirect
 * echo - template function for writing escaped HTML
 * write - writing HTML
 * writeSafe - writing escaped HTML
@@ -51,6 +51,18 @@ echo `<p>User name is: ${Post.name}</p>`
 This will print:
 ```html
 <p>User name is: &#73;&#100;&#111;</p>
+```
+
+### Stop
+If you want to immediately stop the page process (equals to return/break),
+you can call the `stop` function
+
+`index.page.js`
+```js
+if(something){
+    Response.redirect('/')
+    stop()
+}
 ```
 
 ## Sending the controllers of the page
@@ -157,8 +169,6 @@ This can alow be good if you want to save a placeholder between models. If you h
 If you have pieces of code that repeat many times inside your code.
 
 For example path to a component or some attribute, you can define a small placeholder inside your page/model 
-
-(**not working with component**)
 
 ```html
 @define('site', '/site-model/component/')

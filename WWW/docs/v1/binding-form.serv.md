@@ -5,10 +5,13 @@ There are many ways to use a form, in this guild we will focus on best practices
 ## Simple form
 
 ```html
-@{ if(Post){ if(testLogin(Post.email, Post.password)) return
-Response.redirect('/'); write('
-<p>Wrong email or password</p>
-'); } }
+@{ 
+  if(Post){ 
+    if(testLogin(Post.email, Post.password)) 
+      return Response.redirect('/');
+    write('<p>Wrong email or password</p>');
+  } 
+}
 
 <form action="post">
   <input type="email" name="email" placeholder="Enter your email address" />
@@ -20,10 +23,13 @@ Response.redirect('/'); write('
 EAS Framework, provide a better way of doing so
 
 ```html
-@{ function checkLogin(email, password){ if(testLogin(email, password)) return
-null, Response.redirect('/'); return '
-<p>Wrong email or password</p>
-'; } }
+@{ 
+  function checkLogin(email, password){ 
+    if(testLogin(email, password)) 
+      return null, Response.redirect('/'); 
+    return '<p>Wrong email or password</p>';
+  } 
+}
 
 <form action="post" sendTo="checkLogin">
   <input type="email" name="email" placeholder="Enter your email address" />
@@ -38,10 +44,13 @@ null, Response.redirect('/'); return '
 You can change the input order with the 'order' attribute
 
 ```html
-@{ function checkLogin(password,email){ if(testLogin(email, password)) return
-null, Response.redirect('/'); return '
-<p>Wrong email or password</p>
-'; } }
+@{ 
+  function checkLogin(password,email){ 
+    if(testLogin(email, password)) 
+      return null, Response.redirect('/'); 
+    return '<p>Wrong email or password</p>'; 
+  } 
+}
 
 <form action="post" sendTo="checkLogin" order="password,email">
   <input type="email" name="email" placeholder="Enter your email address" />
@@ -57,10 +66,12 @@ null, Response.redirect('/'); return '
 We can also add validation as needed
 
 ```html
-@{ function checkLogin(email, password){ if(testLogin(email, password)) return
-null, Response.redirect('/'); return '
-<p>Wrong email or password</p>
-'; } }
+@{ 
+  function checkLogin(email, password){ 
+    if(testLogin(email, password))
+      return null, Response.redirect('/');
+  return '<p>Wrong email or password</p>'; } 
+}
 
 <form action="post" sendTo="checkLogin" validate="email:email,password:6-30">
   <input type="email" name="email" placeholder="Enter your email address" />

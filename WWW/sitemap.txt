@@ -1,3 +1,7 @@
-/docs/v1/index
 /docs
 /index
+/homepage-static/vscode-template/view
+/homepage-static/pages/api/use
+/homepage-static/pages/binding/submit
+/homepage-static/pages/mpc/about
+/docs/v1/index

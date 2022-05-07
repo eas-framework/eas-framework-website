@@ -42,6 +42,9 @@ export default {
         pathAliases: { // esm path aliases (not for dynamic imports)
             "@imr": "/server/import/" // for example: import {func} from '@imp/data.serv.js' -> import {func} from '/server/import/data.serv.js'
             //      ('/' is relative to the WWW folder)
+        },
+        global: { // const variables that available globaly
+            versionDate: Date.now()
         }
     },
 

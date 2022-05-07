@@ -1,10 +1,13 @@
+# Guides
+*on build*
+
+- [Simple Calculator](./example/calculator)
+- [Simple Gallery](./example/gallery)
+- [WS Chat](./example/chat)
+
 # Examples
-The examples below EAS-Framework best-practices
+You can checkout the examples in the [Home Page](/#samples)
 
-[Simple Calculator](./example/calculator)
-[Simple Gallery](./example/gallery)
-[WS Chat](./example/chat)
+# Repositories
 
-## Git Repositories
-
-[This Website](https://gitlab.com/eas-framework/eas-framework-website)
+- [This Website](https://github.com/eas-framework/eas-framework-website)

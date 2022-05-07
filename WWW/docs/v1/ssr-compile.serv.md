@@ -1,6 +1,8 @@
 # Compile RunTime
 Instead of running everything every request, you can run script on compile time!
 
+**This runtime don't works with [page-base](./ssr#small-placeholder), only with [tag-value](./ssr#page-placeholders-data)**
+
 ```js
 @compile {
     define('create', new Date().toLocaleString());
@@ -29,6 +31,16 @@ function script(path: string, attributes: {[key: string]: string})
 Add style file to the head tag (only if not already exists)
 ```typescript
 function script(path: string, attributes: {[key: string]: string})
+```
+
+### dependence
+
+Add file as dependence, meaning if this file changes then the page will rebuild (hot-reload), on debug mode.
+There is a support for relative path, and absolute path (from WWW folder)
+
+If the file not-exits or already added to dependencies then the function return false
+```typescript
+function dependence(path: string): Promise<boolean>
 ```
 
 ## Variables
@@ -69,5 +81,17 @@ An 'attributes' map for then attributes in the component.
 
 The 'reader' key if for the html inside of the tag
 ```typescript
-var attributes: {[key: string]: string | true}
+var attributes: {[key: string]: string | true | object}
+```
+#### object
+The attribute data will be an object/js-parse only if it is in this syntax:
+
+```jsx
+<Counter data={start: 2, name: 'Json'}/>
+```
+```jsx
+<List array=['array', 'of' 'items']/>
+```
+```jsx
+<AboutNum num=(1) openDialog=(false)/>
 ```

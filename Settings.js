@@ -15,8 +15,8 @@ export default {
     routing: {
         rules: {
             "/docs/"(url) {
-                const version = url.split('/v')[1][0]
-                return `/docs/v${version}/index`
+                const version = url.split('/v')[1]?.[0]
+                return version ? `/docs/v${version}/index`: url
             }
         }
     },
@@ -25,7 +25,7 @@ export default {
         port: 8080
     },
 
-    impProd: {
+    implProd: {
         compile: {
             plugins: ['MinAll']
         }

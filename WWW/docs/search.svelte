@@ -1,5 +1,5 @@
 <script>
-    const version = location.pathname.split('/')[2];
+    const version = location.pathname.split('/')[2]?.[1] ?? 1;
     let results = [];
 
     const input = document.querySelector('#search');
@@ -8,7 +8,7 @@
             results = []
             return
         }
-        const data = await fetch(`/search/${version}/${encodeURIComponent(input.value)}`);
+        const data = await fetch(`/docs/search/${version}/${encodeURIComponent(input.value)}`);
         results = await data.json();
         console.log(results)
     });
@@ -17,7 +17,7 @@
     <div class="results">
         <div class="card m-5 p-5">
             {#each results as {text, url}}
-                <a href={url}>{@html text}</a>
+                <a href={url} on:click={() => results = []}>{@html text}</a>
             {/each}
         </div>
     </div>

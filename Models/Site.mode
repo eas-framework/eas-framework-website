@@ -50,7 +50,7 @@
                     <a href="/docs" class="nav-link">Docs</a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://gitlab.com/eas-framework/eas-framework" class="nav-link">GitLab</a>
+                    <a href="https://github.com/eas-framework/eas-framework" class="nav-link">GitHub</a>
                 </li>
             </ul>
             <button class="btn btn-square ml-auto" type="button" onclick="halfmoon.toggleDarkMode();location.reload()">
@@ -68,7 +68,7 @@
                     <div class="dropdown-menu dropdown-menu-right w-200" aria-labelledby="navbar-dropdown-toggle-btn-1">
                         <!-- w-200 = width: 20rem (200px) -->
                         <a href="/docs" class="dropdown-item">Docs</a>
-                        <a href="https://gitlab.com/eas-framework/eas-framework" class="dropdown-item">GitLab</a>
+                        <a href="https://github.com/eas-framework/eas-framework" class="dropdown-item">GitHub</a>
                     </div>
                 </div>
             </div>

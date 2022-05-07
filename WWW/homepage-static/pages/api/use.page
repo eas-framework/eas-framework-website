@@ -1,0 +1,43 @@
+@[model='./site' title='Use API']
+<@body/>
+<h2>Get name with age</h2>
+
+<div class="form-inline">
+    <input type="number" id="age" class="form-control" value="5" placeholder="Age" min="0" max="1000" />
+    <input type="text" id="word" class="form-control" value="wow" placeholder="Word" minlength="2" maxlength="10" />    
+</div>
+
+<p id="data"></p>
+<p id="update"></p>
+
+<button class="btn btn-primary" onclick="updateName()">Update Name</button>
+<button class="btn btn-primary" onclick="getName()">Refresh Name</button>
+
+<script>
+    const $ = id => document.getElementById(id);
+    const age = $('age'), word = $('word'), data = $('data'), update = $('update');
+
+    async function updateName() {
+        await fetch('./name/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: prompt('Name', 'John')})
+        })
+        getName()
+    }
+
+    async function getName() {
+        const response = await fetch(`./name/age/${age.value}/${word.value}`);
+        const json = await response.json();
+        data.innerText = json.text
+        updateDate()
+    }
+
+    function updateDate(){
+        update.innerText = new Date().toLocaleString();
+    }
+
+    getName();
+</script>

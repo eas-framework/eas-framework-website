@@ -13,8 +13,8 @@ export default {
            return docSearch.search(query, {
                length: 50,
                addAfterMaxLength: '...',
-               fuzzy: 0.9,
-               filter: ({url}) =>url.startsWith('/docs/' + version + '/')
+               fuzzy: 0.4,
+               filter: ({url}) =>url.startsWith('/docs/v' + version + '/')
             })
            .splice(0, 10).map(x => ({text: x.text, url: x.url}))
         }
