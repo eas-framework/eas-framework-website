@@ -1,172 +1,108 @@
-@[model='Docs']
-<@title/>
-@{
-    let title = 'Set Page Name', pagePath = Request.path.split('/')[3]
-}
-@compile {
-    import fs from 'fs/promises'
-    import path from 'path';
-
-    const titles = {
-        "getting-started": "Getting Started",
-        "cli-commands": "CLI Commands",
-        "settings-file": "Settings File",
-
-        "mpc": "Model, Page, Component",
-        "ssr": "SSR (Server Side Rendering)",
-        "server-files": "Server Files",
-        "ssr-compile": "Compile RunTime",
-
-        "binding-connect": "Connect Component",
-        "binding-form": "Form Component",
-        "binding-api": "API File",
-
-        "client-component": "Client Component",
-        "markdown-component": "Markdown Component",
-        "record-component": "Record Component",
-        "search-component": "Search Component",
-        "isolate-component": "Isolate Component",
-
-        "client-ts": "Client TypeScript",
-        "client-sass": "Client SASS",
-        "client-jsx": "Client JSX & TSX",
-        "client-scope": "Client Scope - Script/Style",
-        "client-svelte": "Client Svelte",
-
-
-        "external-packages": "External Packages",
-        "global": "Global Objects",
-        "troubleshooting": "Troubleshooting",
-        "examples": "Guides and Examples",
-
-        "example/calculator": "Simple Calculator",
-        "example/chat": "WS Chat",
-        "example/gallery": "Simple Gallery",
+#[model='Docs']
+<content:title>
+    @code {
+        let title = 'Set Page Name', pagePath = Request.path.split('/')[3]
     }
+    #code {
+        import readPath from './index-build.serv.js'
+        const {writeTitle, buildText} = await readPath('./', __localpath)
 
-    let buildText = '', writeTitle = '';
-    async function ReadPath(dir){
-        const files = await fs.readdir(path.join(__dirname, dir), {withFileTypes: true});
-
-        for(const file of files){
-            if(!file.name.endsWith('.serv.md')) continue;
-            
-            const filePath = dir + file.name;
-
-            if(file.isDirectory()){
-                await ReadPath(filePath + '/')
-                continue;
-            }
-
-            const normalize = path.normalize(filePath).slice(0,-8);
-
-            
-        
-            writeTitle += `
-                if(pagePath == "${normalize}"){
-                    title = "${titles[normalize]}";
-                }
-            `;
-
-            buildText +=`@if(pagePath == "${normalize}"){
-                <MSearch file="${filePath}" link="${path.join(__localpath.substring(1), '..', normalize)}"/>
-            }`;
-
-        }
+        write(`@{${writeTitle}}`);
     }
-    await ReadPath('./');
+    @(title)
+</content:title>
 
-    write(`@{${writeTitle}}`);
-}
-@title
-<@pages/>
-<DocTitle>Getting started</DocTitle>
-<DocLink link="getting-started" icon="fa fa-code">
-    Installation
-</DocLink>
-<!-- <DocLink link="cli-commands" icon="fa fa-terminal">
-    CLI commands
-</DocLink> -->
-<DocLink link="settings-file" icon="fa-solid fa-gears">
-    Settings File
-</DocLink>
+<content:pages>
+    <DocTitle>Getting started</DocTitle>
+    <DocLink link="getting-started" icon="fa fa-code">
+        Installation
+    </DocLink>
+    <!-- <DocLink link="cli-commands" icon="fa fa-terminal">
+        CLI commands
+    </DocLink> -->
+    <DocLink link="settings-file" icon="fa-solid fa-gears">
+        Settings File
+    </DocLink>
 
-<DocTitle>SSR & Server</DocTitle>
-<DocLink link="mpc" icon="fa-solid fa-file-code">
-    Basic MPC
-</DocLink>
-<DocLink link="ssr" icon="fa-solid fa-file-code">
-    SSR
-</DocLink>
-<DocLink link="server-files" icon="fa-brands fa-node-js">
-    Server Files
-</DocLink>
-<DocLink link="ssr-compile" icon="fa-brands fa-node-js">
-    Compile RunTime
-</DocLink>
+    <DocTitle>SSR & Server</DocTitle>
+    <DocLink link="mpc" icon="fa-solid fa-file-code">
+        Basic MPC
+    </DocLink>
+    <DocLink link="ssr" icon="fa-solid fa-file-code">
+        SSR
+    </DocLink>
+    <DocLink link="server-files" icon="fa-brands fa-node-js">
+        Server Files
+    </DocLink>
+    <DocLink link="ssr-compile" icon="fa-brands fa-node-js">
+        Compile RunTime
+    </DocLink>
 
-<DocTitle>Data Binding</DocTitle>
-<DocLink link="binding-form" icon="fa-solid fa-cloud-arrow-up">
-    Form
-</DocLink>
-<DocLink link="binding-connect" icon="fa-solid fa-link">
-    Connect
-</DocLink>
-<DocLink link="binding-api" icon="fa-brands fa-node-js">
-    API
-</DocLink>
+    <DocTitle>Data Binding</DocTitle>
+    <DocLink link="binding-form" icon="fa-solid fa-cloud-arrow-up">
+        Form
+    </DocLink>
+    <DocLink link="binding-connect" icon="fa-solid fa-link">
+        Connect
+    </DocLink>
+    <DocLink link="binding-api" icon="fa-brands fa-node-js">
+        API
+    </DocLink>
 
-<DocTitle>Components</DocTitle>
-<DocLink link="client-component" icon="fa-solid fa-users">
-    Client
-</DocLink>        
-<DocLink link="extends-component" icon="fa-solid fa-users">
-    Extends
-</DocLink>
-<DocLink link="markdown-component" icon="fa-brands fa-markdown">
-    Markdown
-</DocLink>
-<DocLink link="record-component" icon="fa-solid fa-record-vinyl">
-    Record
-</DocLink>
-<DocLink link="search-component" icon="fa-solid fa-magnifying-glass">
-    Search
-</DocLink>
-<DocLink link="isolate-component" icon="fa-solid fa-house-chimney-user">
-    Isolate
-</DocLink>
+    <DocTitle>Components</DocTitle>
+    <DocLink link="client-component" icon="fa-solid fa-users">
+        Client
+    </DocLink>
+    <DocLink link="extends-component" icon="fa-solid fa-users">
+        Extends
+    </DocLink>
+    <DocLink link="markdown-component" icon="fa-brands fa-markdown">
+        Markdown
+    </DocLink>
+    <DocLink link="record-component" icon="fa-solid fa-record-vinyl">
+        Record
+    </DocLink>
+    <DocLink link="search-component" icon="fa-solid fa-magnifying-glass">
+        Search
+    </DocLink>
+    <DocLink link="isolate-component" icon="fa-solid fa-house-chimney-user">
+        Isolate
+    </DocLink>
 
-<DocTitle>Client Files</DocTitle>
-<DocLink link="client-ts" icon="fa-solid fa-scroll">
-    TypeScript
-</DocLink>
-<DocLink link="client-sass" icon="fa-brands fa-sass">
-    Sass
-</DocLink>
-<DocLink link="client-jsx" icon="fa-brands fa-react">
-    JSX & TSX
-</DocLink>
-<DocLink link="client-scope" icon="fa-solid fa-box">
-    Scope Script/Style
-</DocLink>
-<DocLink link="client-svelte" icon="fa-solid fa-scroll">
-    Svelte
-</DocLink>
+    <DocTitle>Client Files</DocTitle>
+    <DocLink link="client-ts" icon="fa-solid fa-scroll">
+        TypeScript
+    </DocLink>
+    <DocLink link="client-sass" icon="fa-brands fa-sass">
+        Sass
+    </DocLink>
+    <DocLink link="client-jsx" icon="fa-brands fa-react">
+        JSX & TSX
+    </DocLink>
+    <DocLink link="client-scope" icon="fa-solid fa-box">
+        Scope Script/Style
+    </DocLink>
+    <DocLink link="client-svelte" icon="fa-solid fa-scroll">
+        Svelte
+    </DocLink>
 
-<DocTitle>More</DocTitle>
-<DocLink link="external-packages" icon="fa-solid fa-box">
-    External Packages
-</DocLink>
-<DocLink link="global" icon="fa-solid fa-globe">
-    Global Objects
-</DocLink>
-<DocLink link="troubleshooting" icon="fa-solid fa-circle-question">
-    Troubleshooting
-</DocLink>
-<DocLink link="examples" icon="fa-solid fa-graduation-cap">
-    Guides and Examples
-</DocLink>
-<@body/>
-@compile {
-    write(buildText)
-}
+    <DocTitle>More</DocTitle>
+    <DocLink link="external-packages" icon="fa-solid fa-box">
+        External Packages
+    </DocLink>
+    <DocLink link="global" icon="fa-solid fa-globe">
+        Global Objects
+    </DocLink>
+    <DocLink link="troubleshooting" icon="fa-solid fa-circle-question">
+        Troubleshooting
+    </DocLink>
+    <DocLink link="examples" icon="fa-solid fa-graduation-cap">
+        Guides and Examples
+    </DocLink>
+</content:pages>
+
+<content:body>
+    #code {
+        write(buildText)
+    }
+</content:body>

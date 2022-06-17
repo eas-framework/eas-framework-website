@@ -1,3 +1,5 @@
-@[model='Site' title='Not Found']
-<@body/>
-<h1>Page not found...</h1>
+#[model='Site' title='Not Found']
+
+<content:body>
+    <h1>Page not found...</h1>
+</content:body>

@@ -3,21 +3,19 @@
 # How to use the SSR?
 
 Basically, every SSR block (page, model, component)
-can use EJS and Razor-like rendering
+with a razor-like rendering
 
 ```js
-@*Simple Comment - this is who to write SSR block *@
-<% let i = 0 // script block %>
-@{
-    let i++
+#*Simple Comment - this is who to write SSR block *#
+@code {
+    let i = 0;
+    i++;
 }
 
-@*This is how to print escaped text*@
-Count EJS: <%:i%>
-Count Razor: @:i
+#*This is how to print escaped text*#
+Count Razor: @:(i)
 
-@*This is how to write literal HTML*@
-<%= "<p>Text ejs</p>" %>
+#*This is how to write literal HTML*#
 @("<p>Text Razor</p>")
 ```
 
@@ -72,6 +70,7 @@ This is useful when you want to send all the page controllers to a function at o
 ## Global variable in every file (not just SSR blocks)
 * __dirname - the current folder (although it is a model, eas-framework create that for easy use)
 * __filename - the current filename (although it is a model, eas-framework create that for easy use)
+* \_\_DEBUG\_\_ - boolean, true if you in debug mode
 
 ## Model
 Model is a template with placeholders to use by a page. 
@@ -118,13 +117,13 @@ You can prevent this if you need SSR inside the script/style tag with the 'serve
 ### Default values
 You can add default values in this form
 ```typescript
-@default(value)[prop1, prop2...]
-@default(value2)[prop3]
+#default('key', 'value')
+#default(['key1', 'key2'], true)
 ```
 
 For Example
 ```html
-@default(/Home)[to]
+#default('to', '/Home')
 <a href="~to" class="link-navbar">
     <:reader/>
 </a>
@@ -132,37 +131,40 @@ For Example
 
 ## Page Placeholders Data
 www/index.page
-```typescript
-<@model>/site-model/site</@model>
-<@body/>
-Hello Home Page
+```html
+<content:model>/site-model/site</content:model>
+
+<content:body>
+    <h1>Hello Home Page</h1>
+</content:body>
 ```
 
 www/about.page
 ```typescript
-<@model>/site-model/site</@model>
-<@body/>
-Hello About Page
-@{
-    export function printEmail(email){
-        write(`<p>You can concat me at ${email}</p>`)
+<content:model>/site-model/site</content:model>
+
+<content:body>
+    @code {
+        export function printEmail(email){
+            write(`<p>You can concat me at ${email}</p>`)
+        }
     }
-}
+</content:body>
 ```
 
 ## Small Placeholder
 There is a better way to write data of small placeholders.
 
 You can use 'Page Base'
-```python
-@[title=Home model="/site-model/site"]
+```rust
+#[title=Home model="/site-model/site"]
 ```
 
 This can alow be good if you want to save a placeholder between models. If you haven't used the placeholder but you want it to stay in the current model
 
 /user-model/user
-```python
-@[title=inherit header=inherit model="/site-model/site"]
+```rust
+#[title=inherit header=inherit model="/site-model/site"]
 ```
 
 # Define data
@@ -171,7 +173,7 @@ If you have pieces of code that repeat many times inside your code.
 For example path to a component or some attribute, you can define a small placeholder inside your page/model 
 
 ```html
-@define('site', '/site-model/component/')
+#define('site', '/site-model/component/')
 
 <NavButton folder=":site:">Very cool!</NavButton>
 ```
@@ -186,7 +188,7 @@ The way 'define' works is:
 www/contact.page
 
 ```html
-<page form="./about"/>
+<eas-page form="./about"/>
 <p>You can concat me at example@email.com</p>
 ```
 
@@ -201,31 +203,29 @@ You can also add page programmatically - this is done in runtime - slower
 If your page export things, you can get them like that
 
 ```typescript
-@{
-    include {printEmail} from './about.page'
-    //or
+@code {
     const {printEmail} = await include('./about.page')
+    printEmail("example@email.com")
 }
-@printEmail("example@email.com")
 ```
 
 # Separate Code File
-You can separate the server-side code to a different file that will connect to a page/model/component by using the 'filecode' placeholder
+You can separate the server-side code to a different file that will connect to a page/model/component by using the 'codefile' placeholder
 
 My Page: WWW/About.page
-```python
-@[codeFile=inherit]
+```rust
+#[codefile=inherit]
 ```
 The inherit will replace by 'WWW/About.page.js' or 'WWW/About.page.ts' (if TypeScript enabled)
 
 You can alow specify exactly the file
-```python
-@[codeFile="./About.page.ts"]
+```rust
+#[codeFile="./About.page.ts"]
 ```
 
 ## Enforce JS
 If TypeScript is enabled you can enforce JavaScript by adding 'lang=js'
 
-```python
-@[codeFile=inherit lang=js]
+```rust
+#[codefile=inherit lang=js]
 ```

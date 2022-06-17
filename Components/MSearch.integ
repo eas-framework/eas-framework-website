@@ -1,0 +1,11 @@
+
+
+#code {
+    if(attrs.file)
+        attrs.file = '/..' + attrs.importSourceDirectory + '/' + attrs.file;
+}
+<eas-search #(attrsHTML('link'))>
+    <eas-markdown #(attrsHTML('file')) theme="@(darkMode ? 'dark' : 'light')" code-theme="@(darkMode ? 'atom-one-dark' : 'atom-one-light')">
+        <:reader/>
+    </eas-markdown>
+</eas-search>

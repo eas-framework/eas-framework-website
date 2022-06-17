@@ -1,0 +1,26 @@
+#[model='Site']
+#code {
+    store.sidebar = true;
+}
+<content:title>Docs |<:title /></content:title>
+
+<content:sidebar>
+    <div class="sidebar">
+        <div class="sidebar-menu">
+            <!-- Sidebar content with the search box -->
+            <div class="navbar-content p-10">
+                <input type="text" class="form-control" id="search" placeholder="Search">
+                <eas-svelte file="/docs/search"/>
+            </div>
+            <!-- Sidebar links (with icons) and titles -->
+            <:pages/>
+        </div>
+    </div>
+</content:sidebar>
+
+<content:body>
+    <div class="container-fluid p-10">
+        <:body/>
+    </div>
+</content:body>
+

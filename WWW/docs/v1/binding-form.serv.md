@@ -5,7 +5,7 @@ There are many ways to use a form, in this guild we will focus on best practices
 ## Simple form
 
 ```html
-@{ 
+@code { 
   if(Post){ 
     if(testLogin(Post.email, Post.password)) 
       return Response.redirect('/');
@@ -23,7 +23,7 @@ There are many ways to use a form, in this guild we will focus on best practices
 EAS Framework, provide a better way of doing so
 
 ```html
-@{ 
+@code { 
   function checkLogin(email, password){ 
     if(testLogin(email, password)) 
       return null, Response.redirect('/'); 
@@ -31,11 +31,11 @@ EAS Framework, provide a better way of doing so
   } 
 }
 
-<form action="post" sendTo="checkLogin">
+<eas-form server-fn="checkLogin">
   <input type="email" name="email" placeholder="Enter your email address" />
   <input type="password" name="password" placeholder="Enter your password" />
   <button type="submit">Submit</button>
-</form>
+</eas-form>
 ```
 
 <details>
@@ -44,7 +44,7 @@ EAS Framework, provide a better way of doing so
 You can change the input order with the 'order' attribute
 
 ```html
-@{ 
+@code { 
   function checkLogin(password,email){ 
     if(testLogin(email, password)) 
       return null, Response.redirect('/'); 
@@ -52,11 +52,11 @@ You can change the input order with the 'order' attribute
   } 
 }
 
-<form action="post" sendTo="checkLogin" order="password,email">
+<eas-form server-fn="checkLogin" order="password,email">
   <input type="email" name="email" placeholder="Enter your email address" />
   <input type="password" name="password" placeholder="Enter your password" />
   <button type="submit">Submit</button>
-</form>
+</eas-form>
 ```
 
 </details>
@@ -66,21 +66,21 @@ You can change the input order with the 'order' attribute
 We can also add validation as needed
 
 ```html
-@{ 
+@code { 
   function checkLogin(email, password){ 
     if(testLogin(email, password))
       return null, Response.redirect('/');
   return '<p>Wrong email or password</p>'; } 
 }
 
-<form action="post" sendTo="checkLogin" validate="email:email,password:6-30">
+<eas-form server-fn="checkLogin" validate="email:email,password:6-30">
   <input type="email" name="email" placeholder="Enter your email address" />
   <input type="password" name="password" placeholder="Enter your password" />
   <button type="submit">Submit</button>
-</form>
+</eas-form>
 ```
 
-The order of the fields in 'validate' is the order of the arguments the 'sendTo' function get
+The order of the fields in 'validate' is the order of the arguments the 'server-fn' function get
 
 ### Validation Types
 
@@ -143,28 +143,22 @@ A simple way to validate and **parse** a form data
 
 By default, the framework will enable auto-generate error messages in debug mode.
 
-You can disable it by setting 'message=false' OR if you want to them in production set 'message=true'
+You can disable it by setting 'error-msg=false' OR if you want to them in production set 'error-msg=true'
 
 If you want to disable it globally you can enable the "SafeDebug" plugin
 
 ```html
-<form
-  action="post"
-  sendTo="checkLogin"
-  validate="email:email,password:6-30"
-  message="false"
-></form>
+<eas-form server-fn="checkLogin" validate="email:email,password:6-30" error-msg="false">
+
+</eas-form>
 ```
 
-You can also override the auto-generate error message and set the message to be a string
+You can also override the auto-generate error message and set the 'error-msg' to be a string
 
 ```html
-<form
-  action="post"
-  sendTo="checkLogin"
-  validate="email:email,password:6-30"
-  message="Make sure the email valid and password between 6 to 30 characters"
-></form>
+<eas-form server-fn="checkLogin" validate="email:email,password:6-30" error-msg="Make sure the email valid and password between 6 to 30 characters">
+
+</eas-form>
 ```
 
 </details>
@@ -172,7 +166,7 @@ You can also override the auto-generate error message and set the message to be 
 <details>
   <summary>Custom error event</summary>
 
-'notValid' attribute contains the name of the function that will be called in case of an error.
+'error-fn' attribute contains the name of the function that will be called in case of an error.
 
 The function will get the
 
@@ -183,28 +177,24 @@ function(message: string, validationType: string (name_of_validation_type) | Reg
 Example
 
 ```html
-@{ function thatError(message, type){ return `There is an error in that type:
-${type}`; } }
-<form
-  action="post"
-  sendTo="checkLogin"
-  validate="email:email,password:6-30"
-  notValid="thatError"
-></form>
+@code { 
+  function thatError(message, type){ 
+    return `There is an error in that type:${type}`; 
+  } 
+}
+<eas-form server-fn="checkLogin" validate="email:email,password:6-30" error-fn="thatError">
+
+</eas-form>
 ```
 
-### Prevent HTML on error message
+### Escape Server Response
 
-To escape HTML on error message add the 'safe' tag.
+To escape HTML message from server-fn, error-msg, error-fn add the 'escape-response' tag.
 
 ```html
-<form
-  action="post"
-  sendTo="checkLogin"
-  validate="email:email,password:6-30"
-  message="This </p> will not cause an error"
-  safe
-></form>
+<eas-form server-fn="checkLogin" validate="email:email,password:6-30" error-msg="This </p> will not cause an error" escape-response>
+
+</eas-form>
 ```
 
 </details>

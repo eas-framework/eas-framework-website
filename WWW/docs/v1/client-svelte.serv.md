@@ -4,19 +4,19 @@ The JS and CSS will be auto-import to the page
 
 All props will copied to the svelte app
 ```html
-<svelte from="./path/to/svelte-file" props={counter: 0, name: 'Cool-Website'}/>
+<eas-svelte file="./path/to/svelte-file" props={counter: 0, name: 'Cool-Website'}/>
 ```
 
 The framework will auto-generate div with id the svelte render as a target.
 You can prevent that by passing your own selector
 
 ```html
-<svelte from="./path/to/svelte-file" selector="#todo"/>
+<eas-svelte file="./path/to/svelte-file" selector="#todo"/>
 ```
 
 You can also only change the id that the framework use for the div.
 ```html
-<svelte from="./path/to/svelte-file" id="#todo"/>
+<eas-svelte file="./path/to/svelte-file" id="#todo"/>
 ```
 
 ### SSR
@@ -24,7 +24,7 @@ Simply add 'SSR' attribute, the framework will do the rest.
 
 You can't use 'selector' cause there need to be SSR writing to the page, but you can change the id.
 ```html
-<svelte from="./path/to/svelte-file" ssr/>
+<eas-svelte file="./path/to/svelte-file" ssr/>
 ```
 
 ### Sass, TypeScript

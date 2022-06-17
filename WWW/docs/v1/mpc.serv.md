@@ -24,7 +24,7 @@ component example: `www/ColorButton.inte`
 
 (component name must be capitalize)
 ```html
-@default(blue)[color]
+#default('color', 'blue')
 
 <button style="background-color:~color">
     <:reader/>
@@ -34,19 +34,20 @@ component example: `www/ColorButton.inte`
 page example: `www/index.page`
 
 ```html
-@[model='./Site' title='This is Home Page']
-<@body/>
-<p>This is a big placeholder</p>
-<ColorButton folder="./">Blue Button</ColorButton>
-<ColorButton folder="./" color="red">Red Button</ColorButton>
+#[model='./Site' title='This is Home Page']
+<content:body>
+    <p>This is a big placeholder</p>
+    <ColorButton folder="./">Blue Button</ColorButton>
+    <ColorButton folder="./" color="red">Red Button</ColorButton>
 
-@{
-    if(!Cookies.counter)
-        Cookies.counter = 0
-    Cookies.counter++
-}
+    @code {
+        if(!Cookies.counter)
+            Cookies.counter = 0
+        Cookies.counter++
+    }
 
-<p>Counter: @Cookies.counter</p>
+    <p>Counter: @(Cookies.counter)</p>
+</content:body>
 ```
 
 # Folders
@@ -72,7 +73,7 @@ Colors is the folder and Button is the component file
 If exists contains models that doesn't need a relative or absolute path
 
 ```python
-@[model=Site]
+#[model=Site]
 ```
 
 # Special component attributes

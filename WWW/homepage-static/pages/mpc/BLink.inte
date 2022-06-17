@@ -1,7 +1,0 @@
-@default(btn-primary)[class]
-
-<div class="m-5 d-inline">
-    <a href="~url">
-        <button class="btn ~class"><:reader/></button>
-    </a>
-</div>

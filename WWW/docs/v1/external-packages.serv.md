@@ -14,7 +14,7 @@ Then EAS-Framework will search for 'node_modules/listModule/Components/List.inte
 ### Models
 
 ```python
-@[model='^myPackage/web' title='Home Page']
+#[model='^myPackage/web' title='Home Page']
 ```
 
 Then EAS-Framework will search for 'node_modules/myPackage/Models/web.mode'

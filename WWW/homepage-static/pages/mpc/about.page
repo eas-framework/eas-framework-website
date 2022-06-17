@@ -1,15 +1,17 @@
-@[model='./site' title=About]
+#[model='./site' title=About]
 
-<@body/>
-<h1 class="text-center">About Page</h1>
+<content:body>
+    <h1 class="text-center">About Page</h1>
 
-<BLink folder url="contact">Contact</BLink>
-<BLink folder class="" url="something">Something</BLink>
-<BLink folder class="btn-link" url="button">Button</BLink>
+    <BLink folder url="contact">Contact</BLink>
+    <BLink folder class="" url="something">Something</BLink>
+    <BLink folder class="btn-link" url="button">Button</BLink>
 
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi eos quis quod nostrum. Voluptatem, vitae porro laudantium nihil quas voluptatum veritatis repellat commodi exercitationem, eos assumenda consectetur voluptas qui inventore?</p>
-<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi dolore doloremque voluptatum voluptates eum, maxime harum sunt, dicta rem reprehenderit ratione quis accusamus! Ex officia nobis est non nam dicta.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi eos quis quod nostrum. Voluptatem, vitae porro laudantium nihil quas voluptatum veritatis repellat commodi exercitationem, eos assumenda consectetur voluptas qui inventore?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi dolore doloremque voluptatum voluptates eum, maxime harum sunt, dicta rem reprehenderit ratione quis accusamus! Ex officia nobis est non nam dicta.</p>
+</content:body>
 
-<@footer/>
-<p>Footer data</p>
+<content:footer>
+    <p>Footer data</p>
+</content:footer>

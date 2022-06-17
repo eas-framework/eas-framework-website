@@ -1,43 +1,50 @@
-@[model='./site' title='Use API']
-<@body/>
-<h2>Get name with age</h2>
+#[model='./site' title='Use API']
 
-<div class="form-inline">
-    <input type="number" id="age" class="form-control" value="5" placeholder="Age" min="0" max="1000" />
-    <input type="text" id="word" class="form-control" value="wow" placeholder="Word" minlength="2" maxlength="10" />    
-</div>
+<content:body>
+    <h2>Get name with age</h2>
 
-<p id="data"></p>
-<p id="update"></p>
+    <div class="form-inline">
+        <input type="number" id="age" class="form-control" value="5" placeholder="Age" min="0" max="1000" />
+        <input type="text" id="word" class="form-control" value="wow" placeholder="Word" minlength="2" maxlength="10" />
+    </div>
 
-<button class="btn btn-primary" onclick="updateName()">Update Name</button>
-<button class="btn btn-primary" onclick="getName()">Refresh Name</button>
+    <p id="data"></p>
+    <p id="update"></p>
 
-<script>
-    const $ = id => document.getElementById(id);
-    const age = $('age'), word = $('word'), data = $('data'), update = $('update');
+    <button class="btn btn-primary" onclick="updateName()">Update Name</button>
+    <button class="btn btn-primary" onclick="getName()">Refresh Name</button>
 
-    async function updateName() {
-        await fetch('./name/update', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({name: prompt('Name', 'John')})
-        })
-        getName()
-    }
+    <script>
+        const $ = id => document.getElementById(id);
+        const age = $('age'),
+            word = $('word'),
+            data = $('data'),
+            update = $('update');
 
-    async function getName() {
-        const response = await fetch(`./name/age/${age.value}/${word.value}`);
-        const json = await response.json();
-        data.innerText = json.text
-        updateDate()
-    }
+        async function updateName() {
+            await fetch('./name/update', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: prompt('Name', 'John')
+                })
+            })
+            getName()
+        }
 
-    function updateDate(){
-        update.innerText = new Date().toLocaleString();
-    }
+        async function getName() {
+            const response = await fetch(`./name/age/${age.value}/${word.value}`);
+            const json = await response.json();
+            data.innerText = json.text
+            updateDate()
+        }
 
-    getName();
-</script>
+        function updateDate() {
+            update.innerText = new Date().toLocaleString();
+        }
+
+        getName();
+    </script>
+</content:body>

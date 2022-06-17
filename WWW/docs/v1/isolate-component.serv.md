@@ -2,12 +2,12 @@
 Simply insert the code into js block `{}`
 
 ```jsx
-@{
+@code {
     const value = 1
 }
-<isolate>
+<eas-isolate>
     @{
         const value = 2;
     }
-</isolate>
+</eas-isolate>
 ```

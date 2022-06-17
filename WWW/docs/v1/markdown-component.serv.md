@@ -8,10 +8,10 @@ Syntax Highlighting build in!
 
 Simply add the markdown tag
 ```html
-<markdown>
+<eas-markdown>
 # Hello World
 * Item in list
-</markdown>
+</eas-markdown>
 ```
 
 ### Options
@@ -57,7 +57,7 @@ Default: 'atom-one'
 
 If you wan't a theme that automatically change base of the user preference (dark/light), you can do it like that:
 ```html
-<markdown code-theme="qtcreator-light|qtcreator-dark">
+<eas-markdown code-theme="qtcreator-light|qtcreator-dark">
 ```
 
 #### header-link

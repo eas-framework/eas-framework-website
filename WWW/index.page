@@ -1,5 +1,6 @@
-@[model='Site' title="Home Page"]
-<@body />
+#[model='Site' title="Home Page"]
+<content:body>
+    
 <style>
     .card .content-title {
         background: linear-gradient(to right, #e9f7ff, #fff0);
@@ -70,25 +71,25 @@
             </div>
         </div>
         <h3 class="border-bottom" id="samples">Samples:</h3>
-        <svelte from="/homepage-static/show.svelte" ssr props={
+        <eas-svelte file="/homepage-static/show.svelte" ssr props=({
             title: 'Model-Page-Component',
             viewHTML: '/homepage-static/pages/mpc/about',
             folder: 'mpc',
-            files: ['about.page', 'BLink.inte', 'site.mode']
-        }/>
+            files: ['about.page', 'BLink.integ', 'site.model']
+        })/>
 
-        <svelte from="/homepage-static/show.svelte" ssr props={
+        <eas-svelte file="/homepage-static/show.svelte" ssr props=({
             title: 'Data Binding',
             viewHTML: '/homepage-static/pages/binding/submit',
             folder: 'binding',
-            files: ['submit.page', 'submit.page.js', 'site.mode']
-        }/>
+            files: ['submit.page', 'submit.page.js', 'site.model']
+        })/>
 
-        <svelte from="/homepage-static/show.svelte" ssr props={
+        <eas-svelte file="/homepage-static/show.svelte" ssr props=({
             title: 'Web API',
             viewHTML: '/homepage-static/pages/api/use',
             folder: 'api',
-            files: ['name.api.js', 'use.page', 'site.mode']
-        }/>
+            files: ['name.api.js', 'use.page', 'site.model']
+        })/>
     </div>
 </div>

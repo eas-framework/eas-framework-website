@@ -32,7 +32,7 @@ while(!name){
 ### With Compile Runtime
 
 ```js
-@compile{
+#code {
     script('/scripts/getName.ts');
 }
 ```

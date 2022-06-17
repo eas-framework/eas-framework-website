@@ -5,7 +5,7 @@ I will show the best practices of doing so.
 Forms are very useful and convenient but do not fit good to events from the client side. That way we have to 'connect' tag.
 
 ```html
-@{
+@code {
     async function userMessage(text, userId){
         try {
             return await sendMessageToUser(text, userId, Session.userId)
@@ -14,7 +14,7 @@ Forms are very useful and convenient but do not fit good to events from the clie
         }
     }
 }
-<connect sendTo="userMessage" name="sendMessageServer" validate="1-200,integer"/>
+<eas-connect server-func="userMessage" client-func="sendMessageServer" validate="1-200,integer"/>
 
 <input type="number" id="userId" placeholder="User Id"/>
 <textarea id="message" name="message" placeholder="Enter your message"></textarea>
@@ -38,13 +38,13 @@ The response can be any type (JSON, Number, Boolean...)
 <details>
   <summary>Validation Error</summary>
 
-  You can also use 'noValid' and 'message'
+  You can also use 'error-func' and 'error-message'
 
 ```html
-<connect sendTo="userMessage" name="sendMessageServer" validate="1:200,integer" noValid="() => ({error: 'fields not valid'})"/>
+<eas-connect server-fn="userMessage" client-fn="sendMessageServer" validate="1:200,integer" error-fn="() => ({error: 'fields not valid'})"/>
 ```
 
 ```html
-<connect sendTo="userMessage" name="sendMessageServer" validate="1:200,integer" message="Enter a valid userId and make sure the message is between 1 to 200 characters"/>
+<eas-connect server-fn="userMessage" client-fn="sendMessageServer" validate="1:200,integer" error-msg="Enter a valid userId and make sure the message is between 1 to 200 characters"/>
 ```
 </details>

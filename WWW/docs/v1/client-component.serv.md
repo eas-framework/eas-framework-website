@@ -7,7 +7,7 @@ There is an option for CSR, it is the client tag.
 
 ```html
 <div id="posts"></div>
-<client name="andPosts" params="posts, onlyName" selector="#posts">
+<eas-client fn-name="andPosts" params="posts, onlyName" selector="#posts">
     @for(let i in posts){
         <div class="post">
             <p>@:i.name</p>
@@ -19,7 +19,7 @@ There is an option for CSR, it is the client tag.
             }
         </div>
     }
-</client>
+</eas-client>
 
 <script>
     andPosts({posts: postArray, onlyName: true});

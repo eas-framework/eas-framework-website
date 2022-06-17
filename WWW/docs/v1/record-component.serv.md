@@ -2,10 +2,10 @@
 A way to store static html content
 
 ```html
-<record>
+<eas-record>
     <h1>Hello World!</h1>
     Some text
-</record>
+</eas-record>
 ```
 *[request-path]: The path of the file relative to the website folder without the 'page' extension
 This it will save in a map where the key is the request-path and the value is the html

@@ -25,7 +25,7 @@ const div2=(<div>{1+1}</div>);
 ### With Compile Runtime
 
 ```js
-@compile{
+#code {
     script('/scripts/div2.tsx');
 }
 ```

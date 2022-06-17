@@ -1,4 +1,3 @@
-
 let name = 'John Doe';
 
 setInterval(() => name = 'John Doe', 1000*30);

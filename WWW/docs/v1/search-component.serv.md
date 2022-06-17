@@ -3,6 +3,14 @@ Similar to [record](./record-component) but for search purposes
 
 This will extract titles from the texts
 
+```html
+<eas-search>
+    <h1 id="home-page">Home Page</h1>
+    Some text
+</eas-search>
+
+```
+
 ```ts
 type searchMap = {[request-path]: {
     titles: {[key: objectId]: string}
@@ -31,10 +39,10 @@ export function queryText(query){
 
 You can use then with SSR block
 ```jsx
-@{
+@code {
     import {queryText} from './searchFile.serv.js'
 }
-@(const {text, url} of queryText(Query.q ?? 'new')){
+@for(const {text, url} of queryText(Query.q ?? 'new')){
     <a href="@url">@:text</a>
 }
 ```

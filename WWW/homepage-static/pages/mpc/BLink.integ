@@ -1,0 +1,7 @@
+#default('class', 'btn-primary')
+
+<div class="m-5 d-inline">
+    <a href="#(attrs.url)">
+        <button class="btn #(attrs.class)"><:reader/></button>
+    </a>
+</div>

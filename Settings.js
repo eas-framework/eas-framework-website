@@ -8,7 +8,8 @@ export default {
 
     compile: {
         define: {
-            version: 1
+            version: 1,
+            specific: '.4.1'
         }
     },
 
@@ -22,7 +23,7 @@ export default {
     },
 
     serve: {
-        port: 8080
+        port: 80
     },
 
     implProd: {

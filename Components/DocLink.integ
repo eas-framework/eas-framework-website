@@ -1,0 +1,9 @@
+@code {
+    const version = Number(Request.path.split('/')[2].substring(1)) || :version:
+}
+<a href="/docs/v@(version)/#(attrs.link)" class="sidebar-link sidebar-link-with-icon@(Request.path.endsWith('/#(attrs.link)') ? ' active': '')">
+    <span class="sidebar-icon">
+        <i class="#(attrs.icon)" aria-hidden="true"></i>
+    </span>
+    <:reader/>
+</a>

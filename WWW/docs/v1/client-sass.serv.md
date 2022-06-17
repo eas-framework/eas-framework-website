@@ -23,7 +23,7 @@ When you import Sass & Scss it automatically transpile into regular css
 ### With Compile Runtime
 
 ```js
-@compile{
+#code {
     style('/colors.sass');
 }
 ```

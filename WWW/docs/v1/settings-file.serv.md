@@ -71,7 +71,8 @@ export default {
             urlStop: false,
             errorPages: false,
             validPath: true,
-            file: 'LoadSettings.serv.ts' // search for 'Sitemap' function (pagesPath: string[], {pages: [path, folder -> 'WWW' | 'Logs'][], files: string[], scripts: string[]}, settings: ExportSettings): boolean | string - return path to save the file
+            file: 'sitemap.xml',
+            updateAfterHours: 0 // update sitemap on new request after x hours
         },
         ignoreTypes: ["json"], // ignore file extension (auto ignore common server files)
         ignorePaths: ["/Private"],
