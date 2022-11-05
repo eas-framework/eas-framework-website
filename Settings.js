@@ -9,7 +9,7 @@ export default {
     compile: {
         define: {
             version: 1,
-            specific: '.4.1'
+            specific: '.5'
         }
     },
 

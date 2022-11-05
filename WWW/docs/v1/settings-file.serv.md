@@ -25,7 +25,8 @@ export default {
 ```js
 export default {
     development: true, // development mode, if off, then is optimize for production
-
+    websiteDirectory: '.',
+    
     general: {
         pageInRam: true,
         importOnLoad: ["OnStart.serv.ts"] // Search for 'StartServer' function (app: TinyApp, {server: http.server, listen: (port) => {}, close: () => {}}, settings: ExportSettings)

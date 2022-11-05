@@ -90,6 +90,27 @@ attrsObjectHTML is for using in [another component](#attrs)
 </div>
 ```
 
+### spaceOne
+Add one space if value isn't evaluate to false
+*this method will trim other spaces*
+```ts
+spaceOne(text: any): string
+spaceOne(returnValue: bool, value): string
+```
+Examples:
+```html
+<input type="button" class="btn btn-link#(spaceOne(attrs.class))"/>
+<input type="checkbox"#(spaceOne(attrs.checked, 'checked'))/>
+
+<!--In case of a value-->
+<input type="button" class="btn btn-link border-bottom"/>
+<input type="checkbox" checked/>
+
+<!--In case there isn't a value-->
+<input type="button" class="btn btn-link"/>
+<input type="checkbox"/>
+```
+
 ## Variables
 
 ### store
